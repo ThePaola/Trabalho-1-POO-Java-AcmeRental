@@ -7,6 +7,7 @@ independentes para cada tipo de item alugável.
 Você será responsável pelo desenvolvimento de um destes aplicativos.
 O analista de sistemas identificou as seguintes classes iniciais, com alguns atributos e
 relacionamentos apresentados a seguir.
+![image](https://user-images.githubusercontent.com/101745159/191379500-c0bb0311-fe1c-4445-a680-b337be2e0f50.png)
 O analista identificou operações básicas iniciais das classes:
 • Acervo: classe catálogo que gerencia o cadastro de itens alugáveis:o adicionaAlugavel(Alugavel): recebe como parâmetro um novo item alugável e
 cadastra-o no sistema. Não pode haver itens alugáveis com o mesmo código.
