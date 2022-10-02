@@ -1,0 +1,85 @@
+import java.util.ArrayList;
+
+public class Alugavel {
+    private int codigo;
+    private String nome;
+    private double precoDiario;
+    private boolean masculinoFeminino;
+    private boolean vestidoCasamento;
+    private ArrayList<Aluguel> cadastroAlugavel;
+
+    public Alugavel(int codigo, String nome, double precoDiario, boolean masculinoFeminino, boolean vestidoCasamento) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.precoDiario = precoDiario;
+        this.masculinoFeminino = masculinoFeminino;
+        this.vestidoCasamento = vestidoCasamento;
+        cadastroAlugavel = new ArrayList<Aluguel>();
+    }
+
+    public Alugavel(int codigo, String nome, double precoDiario) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.precoDiario = precoDiario;
+        cadastroAlugavel = new ArrayList<Aluguel>();
+    }
+
+    public boolean adicionaAluguel(Aluguel aluguel) {
+        for (Aluguel aluguelSearch : cadastroAlugavel) {
+            if (aluguelSearch == aluguel) {
+                return false;
+            }
+        }
+        cadastroAlugavel.add(aluguel);
+        return true;
+    }
+
+    public ArrayList<Aluguel> getCadastroAlugavel () {
+        return cadastroAlugavel;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNomeAlugavel() {
+        return nome;
+    }
+
+    public void setNomeAlugavel(String nome) {
+        this.nome = nome;
+    }
+
+    public double getPrecoDiario() {
+        return precoDiario;
+    }
+
+    public void setPrecoDiario(double precoDiario) {
+        this.precoDiario = precoDiario;
+    }
+
+    public boolean getMasculinoFeminino() {
+        return masculinoFeminino;
+    }
+
+    public void setMasculinoFeminino(boolean mf) {
+        this.masculinoFeminino = mf;
+    }
+
+    public boolean getVestidoCasamento() {
+        return vestidoCasamento;
+    }
+
+    public void setVestidoCasamento(boolean vc) {
+        this.vestidoCasamento = vc;
+    }
+
+    @Override
+    public String toString() {
+        return "Alugavel [Codigo=" + codigo + ", Nome=" + nome+ ", Preco Diario=" + precoDiario + " Masculino/Feminino=" + masculinoFeminino + " Vestido de Casamento=" + vestidoCasamento + "]";
+    }
+}
