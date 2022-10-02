@@ -1,0 +1,83 @@
+public class Aluguel {
+    private String data;
+
+    private int periodo;
+
+    private String cpf;
+
+    private String nome;
+
+    private double valorFinal;
+
+    Alugavel alugavel;
+
+    public Aluguel(String data, int periodo, String cpf, String nome, Alugavel alugavel) {
+        this.data = data;
+        this.periodo = periodo;
+        this.cpf = cpf;
+        this.alugavel = alugavel;
+        this.nome = nome;
+        valorFinal = calculaValorFinal();
+    }
+
+    public double calculaValorFinal() {
+        double valorF = 0;
+        if(periodo > 7) {
+            valorF = periodo * alugavel.getPrecoDiario();
+            return valorF - (valorF * 0.1);
+        }
+        else {
+            valorF = periodo * alugavel.getPrecoDiario();
+            return valorF;
+        }
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNomeAluguel() {
+        return nome;
+    }
+
+    public void setNomeAluguel(String nome) {
+        this.nome = nome;
+    }
+
+    public double getValorFinal() {
+        return valorFinal;
+    }
+
+    public void setValorFinal(double vf) {
+        this.valorFinal = vf;
+    }
+
+    public Alugavel getAlugavel(){
+        return alugavel;
+    }
+
+    @Override
+    public String toString() {
+        return "Aluguel Data=" + data + ", Periodo=" + periodo+ ", CPF=" + cpf + " Nome=" + nome + " Valor Final=" + valorFinal;
+    }
+}
