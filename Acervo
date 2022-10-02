@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+
+public class Acervo {
+    private ArrayList<Alugavel> cadastro;
+
+    public Acervo () {
+        cadastro = new ArrayList<Alugavel>();
+    }
+
+    public boolean adicionaAlugavel(Alugavel alugavel) {
+        for (Alugavel alugavelSearch : cadastro) {
+            if (alugavelSearch.getCodigo() == alugavel.getCodigo()) {
+                return false;
+            }
+        }
+        cadastro.add(alugavel);
+        return true;
+    }
+
+    public Alugavel pesquisaAlugavel(int codigo) {
+        for(Alugavel alugavelSearch : cadastro) {
+            if(alugavelSearch.getCodigo() == codigo) {
+                return alugavelSearch;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Alugavel> pesquisaAlugavel(String nome) {
+        ArrayList<Alugavel> pesquisaNome;
+        pesquisaNome = new ArrayList<Alugavel>();
+        for(Alugavel a : cadastro) {
+            if(a.getNomeAlugavel().equals(nome)) {
+                pesquisaNome.add(a);
+            }
+            return pesquisaNome;
+        }
+        if(pesquisaNome.size() > 0) {
+            return pesquisaNome;
+        }
+        else {
+            return null;
+        }
+    }
+
+    public ArrayList<Alugavel> getListaAlugaveis() {
+        return cadastro;
+    }
+}
