@@ -1,0 +1,66 @@
+import java.util.ArrayList;
+
+public class Locacoes {
+    ArrayList<Aluguel> cadastro;
+
+    public Locacoes() {
+        cadastro = new ArrayList<Aluguel>();
+    }
+
+    public void adicionaAluguel(Aluguel aluguel) {
+        cadastro.add(aluguel);
+    }
+
+    public ArrayList<Aluguel> pesquisaAluguel(String cpf) {
+        ArrayList<Aluguel> pesquisaCpf;
+        pesquisaCpf = new ArrayList<Aluguel>();
+        for(int i=0; i<cadastro.size(); i++) {
+            Aluguel aluguel = cadastro.get(i);
+            if(aluguel.getCpf().equals(cpf)) {
+                pesquisaCpf.add(aluguel);
+            }
+        }
+        if(pesquisaCpf.size() > 0) {
+            return pesquisaCpf;
+        }
+        else {
+            return null;
+        }
+    }
+
+    public ArrayList<Aluguel> pesquisaAluguelNome(String nome) {
+        ArrayList<Aluguel> aluguelNome = new ArrayList<Aluguel>();
+        for(int i=0; i<cadastro.size(); i++) {
+            Aluguel aluguel = cadastro.get(i);
+            if(aluguel.getAlugavel().getNomeAlugavel().equals(nome)) {
+                aluguelNome.add(aluguel);
+            }
+        }
+        if(aluguelNome.size() > 0) {
+            return aluguelNome;
+        }
+        else {
+            return null;
+        }
+    }
+
+    public ArrayList<Aluguel> pesquisaAluguelCodigo(int codigo) {
+        ArrayList<Aluguel> aluguelCodigo = new ArrayList<Aluguel>();
+        for(int i=0; i<cadastro.size(); i++) {
+            Aluguel aluguel = cadastro.get(i);
+            if(aluguel.getAlugavel().getCodigo() == codigo) {
+                aluguelCodigo.add(aluguel);
+            }
+        }
+        if(aluguelCodigo.size() > 0) {
+            return aluguelCodigo;
+        }
+        else {
+            return null;
+        }
+    }
+
+    public ArrayList<Aluguel> getLocacoes() {
+        return cadastro;
+    }
+}
